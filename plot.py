@@ -33,6 +33,11 @@ def realise_plot(events):
                     i += 1
 
 
+def draw_persona(name):
+    face = pygame.image.load(name)
+    screen.blit(face, (270, 250))
+
+
 def click(event_type):
     """
     The function returns the coordinates of the mouse click
@@ -76,8 +81,10 @@ def one():
 def two():
     screen.fill((240, 255, 255))
     pygame.draw.rect(screen, 'black', (350, 150, 40, 40))
-    text1 = f1.render('Hello', True, (0, 0, 0))
+    text1 = f1.render('Hello\n world', True, (0, 0, 0))
+    text2 = f1.render('dhgfdghf', True, (0, 0, 0))
     screen.blit(text1, (50, 50))
+    screen.blit(text2, (50, 70))
     pygame.display.update()
 
 
@@ -104,12 +111,18 @@ while not finished:
             finished = True
         elif event.type == pygame.MOUSEBUTTONDOWN:
             x, y = event.pos
+
             if 100 <= x <= 400 and 250 <= y <= 350:
                 realise_plot(story["first"])
             first()
+            draw_persona('main_hero.png')
             pygame.display.update()
             next_plot = choice(click(event))
             if next_plot == 1:
+                realise_plot(story["second"])
+            elif next_plot == 2:
+                realise_plot(story["second"])
+            elif next_plot == 3:
                 realise_plot(story["second"])
 
 pygame.quit()
