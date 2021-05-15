@@ -17,6 +17,10 @@ zero_surf = pygame.image.load('0.jpg')
 screen.blit(zero_surf, (0, 100))
 
 pygame.draw.rect(screen, 'BLUE', (100, 250, 300, 100))
+f1 = pygame.font.Font(None, 36)
+text1 = f1.render('Начать игру', True, (0, 0, 0))
+screen.blit(text1, (175, 285))
+pygame.display.update()
 
 
 def realise_plot(events):
@@ -31,6 +35,24 @@ def realise_plot(events):
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     i += 1
+
+
+def blit_text(surface, text, pos, font, color=pygame.Color('black')):
+    words = [word.split(' ') for word in text.splitlines()]  # 2D array where each row is a list of words.
+    space = font.size(' ')[0]  # The width of a space.
+    max_width, max_height = surface.get_size()
+    x, y = pos
+    for line in words:
+        for word in line:
+            word_surface = font.render(word, 0, color)
+            word_width, word_height = word_surface.get_size()
+            if x + word_width >= max_width:
+                x = pos[0]  # Reset the x.
+                y += word_height  # Start on new row.
+            surface.blit(word_surface, (x, y))
+            x += word_width + space
+        x = pos[0]  # Reset the x.
+        y += word_height  # Start on new row.
 
 
 def click(event_type):
@@ -67,9 +89,9 @@ def draw_choice():
 
 def one():
     screen.fill((240, 255, 255))
-    pygame.draw.rect(screen, 'black', (350, 150, 40, 40))
-    text1 = f1.render('Привет', True, (0, 0, 0))
-    screen.blit(text1, (50, 50))
+    f1 = pygame.font.Font(None, 30)
+    text1 = 'Вот-вот начнется ваша история. Но сначала выберите то, как вы хотите выглядеть'
+    blit_text(screen, text1, (50, 50), f1)
     pygame.display.update()
 
 
@@ -89,10 +111,10 @@ def first():
 
 subj_1 = np.array([one, two])
 subj_2 = subj_1
-story = dict([
-    ("first", subj_1),
-    ("second", subj_2)
-])
+story = {
+    "first": subj_1,
+    "second": subj_2
+}
 
 pygame.display.update()
 clock = pygame.time.Clock()
