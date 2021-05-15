@@ -17,10 +17,6 @@ zero_surf = pygame.image.load('0.jpg')
 screen.blit(zero_surf, (0, 100))
 
 pygame.draw.rect(screen, 'BLUE', (100, 250, 300, 100))
-f1 = pygame.font.Font(None, 36)
-text1 = f1.render('Начать игру', True, (0, 0, 0))
-screen.blit(text1, (175, 285))
-pygame.display.update()
 
 
 def realise_plot(events):
@@ -53,6 +49,11 @@ def blit_text(surface, text, pos, font, color=pygame.Color('black')):
             x += word_width + space
         x = pos[0]  # Reset the x.
         y += word_height  # Start on new row.
+
+
+def draw_persona(name):
+    face = pygame.image.load(name)
+    screen.blit(face, (270, 250))
 
 
 def click(event_type):
@@ -89,16 +90,18 @@ def draw_choice():
 
 def one():
     screen.fill((240, 255, 255))
-    f1 = pygame.font.Font(None, 30)
-    text1 = 'Вот-вот начнется ваша история. Но сначала выберите то, как вы хотите выглядеть'
-    blit_text(screen, text1, (50, 50), f1)
+    pygame.draw.rect(screen, 'black', (350, 150, 40, 40))
+    text1 = f1.render('Привет', True, (0, 0, 0))
+    screen.blit(text1, (50, 50))
+    text2 = "Теперь мы можем писать текст и он будет автоматически переноситься"
+    blit_text(screen, text2, (50, 60), f1)
     pygame.display.update()
 
 
 def two():
     screen.fill((240, 255, 255))
     pygame.draw.rect(screen, 'black', (350, 150, 40, 40))
-    text1 = f1.render('Hello', True, (0, 0, 0))
+    text1 = f1.render('Hello\n world', True, (0, 0, 0))
     screen.blit(text1, (50, 50))
     pygame.display.update()
 
@@ -111,10 +114,10 @@ def first():
 
 subj_1 = np.array([one, two])
 subj_2 = subj_1
-story = {
-    "first": subj_1,
-    "second": subj_2
-}
+story = dict([
+    ("first", subj_1),
+    ("second", subj_2)
+])
 
 pygame.display.update()
 clock = pygame.time.Clock()
@@ -126,12 +129,18 @@ while not finished:
             finished = True
         elif event.type == pygame.MOUSEBUTTONDOWN:
             x, y = event.pos
+
             if 100 <= x <= 400 and 250 <= y <= 350:
                 realise_plot(story["first"])
             first()
+            draw_persona('main_hero.png')
             pygame.display.update()
             next_plot = choice(click(event))
             if next_plot == 1:
+                realise_plot(story["second"])
+            elif next_plot == 2:
+                realise_plot(story["second"])
+            elif next_plot == 3:
                 realise_plot(story["second"])
 
 pygame.quit()
