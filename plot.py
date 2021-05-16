@@ -55,6 +55,7 @@ def blit_text(surface, text, pos, font, color=pygame.Color('black')):
 def draw_persona(name):
     face = pygame.image.load(name)
     screen.blit(face, (270, 250))
+    pygame.display.update()
 
 
 def click(event_type):
@@ -118,7 +119,35 @@ def step_3():
 def step_4():
     screen.fill((240, 255, 255))
     draw_persona('main_hero.png')
+    text = "Я сдала ЕГЭ: "
+    blit_text(screen, text, (150, 100), f1)
+    draw_choice()
+    pygame.draw.rect(screen, (240, 255, 255), (100, 650, 300, 40))
+    text1 = "Отлично! Пусть начнётся моя история."
+    text2 = "Хорошо. Но я хочу пересдать ЕГЭ."
+    blit_text(screen, text1, (120, 570), f1)
+    blit_text(screen, text2, (120, 615), f2)
 
+
+def step_7():
+    screen.fill('black')
+    text = "Глава 1: первый день на Физтехе"
+    blit_text(screen, text, (180, 300))
+
+
+def step_8():
+    scene = pygame.image.load('home.png')
+    screen.blit(scene, (0, 0))
+
+
+def step_9():
+    scene = pygame.image.load('home.png')
+    screen.blit(scene, (0, 0))
+    draw_persona('main_hero.png')
+    text = "Какое доброе утро! До сих пор не верится, что я поступила на Физтех. Что ж, первая ночь в общаге прошла " \
+           "спокойно, посмотрим, что для меня приготовил первый учебный день. "
+    pygame.draw.rect(screen, 'pink', (100, 600, 300, 40))
+    blit_text(screen, text, (100, 600))
 
 
 def first():
@@ -157,5 +186,6 @@ while not finished:
                 realise_plot(story["second"])
             elif next_plot == 3:
                 realise_plot(story["second"])
+            step_9()
 
 pygame.quit()
