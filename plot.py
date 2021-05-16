@@ -1,13 +1,14 @@
 # В данном файле хранится сюжет и его обработка
 import pygame
 import numpy as np
+from random import randint
 
 pygame.init()
 pygame.font.init()
 
 WIDTH = 500
 HEIGHT = 700
-f1 = pygame.font.Font(None, 20)
+f1 = pygame.font.Font('excentra.ttf', 20)
 
 FPS = 20
 # Отрисовка заставки
@@ -88,22 +89,36 @@ def draw_choice():
     pygame.draw.rect(screen, 'pink', (100, 650, 300, 40))
 
 
-def one():
+def step_1():
     screen.fill((240, 255, 255))
-    pygame.draw.rect(screen, 'black', (350, 150, 40, 40))
-    text1 = f1.render('Привет', True, (0, 0, 0))
-    screen.blit(text1, (50, 50))
-    text2 = "Теперь мы можем писать текст и он будет автоматически переноситься"
-    blit_text(screen, text2, (50, 60), f1)
+    text1 = "Вот-вот начнётся твоя история. Но сначала узнаем, как ты сдала ЕГЭ."
+    blit_text(screen, text1, (50, 260), f1)
     pygame.display.update()
 
 
-def two():
+def step_2():
     screen.fill((240, 255, 255))
-    pygame.draw.rect(screen, 'black', (350, 150, 40, 40))
-    text1 = f1.render('Hello\n world', True, (0, 0, 0))
-    screen.blit(text1, (50, 50))
+    a = str(randint(250, 310))
+    pygame.draw.rect(screen, 'blue', (150, 200, 200, 300))
+    text1 = "Твой балл ЕГЭ:"
+    blit_text(screen, text1, (150, 100), f1)
+    blit_text(screen, a, (245, 350), f1)
     pygame.display.update()
+
+
+def step_3():
+    screen.fill((240, 255, 255))
+    text1 = "Введите свое имя: "
+    blit_text(screen, text1, (150, 100), f1)
+    name = input()
+    blit_text(screen, name, (245, 350), f1)
+    pygame.display.update()
+
+
+def step_4():
+    screen.fill((240, 255, 255))
+    draw_persona('main_hero.png')
+
 
 
 def first():
@@ -112,7 +127,7 @@ def first():
     draw_choice()
 
 
-subj_1 = np.array([one, two])
+subj_1 = np.array([step_1, step_2])
 subj_2 = subj_1
 story = dict([
     ("first", subj_1),
