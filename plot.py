@@ -1,4 +1,5 @@
 # В данном файле хранится сюжет и его обработка
+
 import pygame
 import numpy as np
 from random import randint
@@ -14,10 +15,21 @@ FPS = 20
 # Отрисовка заставки
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 screen.fill((255, 255, 255))
-zero_surf = pygame.image.load('0.jpg')
-screen.blit(zero_surf, (0, 100))
+zero_surf = pygame.image.load('zastavka0.png')
+screen.blit(zero_surf, (0, 0))
+button = pygame.image.load('new_game.png')
+screen.blit(button, (50, 500))
+text_0 = pygame.image.load('text_0.png')
+screen.blit(text_0, (50, -10))
 
-pygame.draw.rect(screen, 'BLUE', (100, 250, 300, 100))
+
+class Persona:
+    def __init__(self):
+        self.ege_point = 0
+        self.name = 0
+        self.luck = 0
+        self.smart = 0
+        self.pop = 0
 
 
 def realise_plot(events):
@@ -32,6 +44,9 @@ def realise_plot(events):
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     i += 1
+
+
+main_character = Persona()
 
 
 def blit_text(surface, text, pos, font, color=pygame.Color('black')):
@@ -55,13 +70,7 @@ def blit_text(surface, text, pos, font, color=pygame.Color('black')):
 def draw_persona(name):
     face = pygame.image.load(name)
     screen.blit(face, (270, 250))
-    pygame.display.update()
-
-
-def draw_talker(name):
-    face = pygame.image.load(name)
-    screen.blit(face, (100, 250))
-    pygame.display.update()
+ #   pygame.display.update()
 
 
 def click(event_type):
@@ -87,6 +96,15 @@ def choice(position):
         return 3
 
 
+def ege_points():
+    flag = True
+    while flag:
+        realise_plot([step_3, step_4])
+        next_step = choice(click(event))
+        if next_step == 1:
+            flag = False
+
+
 def draw_choice():
     """
     Draws rectangles for choices
@@ -105,11 +123,13 @@ def step_1():
 
 def step_3():
     screen.fill((240, 255, 255))
-    a = str(randint(250, 310))
+    ege_mark = str(randint(250, 310))
+#    pygame.display.update()
+    main_character.ege_point = ege_mark
     pygame.draw.rect(screen, 'blue', (150, 200, 200, 300))
     text1 = "Твой балл ЕГЭ:"
     blit_text(screen, text1, (150, 100), f1)
-    blit_text(screen, a, (245, 350), f1)
+    blit_text(screen, ege_mark, (245, 350), f1)
     pygame.display.update()
 
 
@@ -117,8 +137,10 @@ def step_2():
     screen.fill((240, 255, 255))
     text1 = "Введите свое имя: "
     blit_text(screen, text1, (150, 100), f1)
-    name = input()
-    blit_text(screen, name, (245, 350), f1)
+#    pygame.display.update()
+    name = "marie" #FIXME должен быть инпут
+    main_character.name = name
+    blit_text(screen, main_character.name, (245, 350), f1)
     pygame.display.update()
 
 
@@ -139,7 +161,7 @@ def step_4():
 def step_7():
     screen.fill('black')
     text = "Глава 1: первый день на Физтехе"
-    blit_text(screen, text, (180, 300), f1)
+    blit_text(screen, text, (180, 300))
     pygame.display.update()
 
 
@@ -156,7 +178,7 @@ def step_9():
     text = "Какое доброе утро! До сих пор не верится, что я поступила на Физтех. Что ж, первая ночь в общаге прошла " \
            "спокойно, посмотрим, что для меня приготовил первый учебный день. "
     pygame.draw.rect(screen, 'pink', (100, 600, 300, 40))
-    blit_text(screen, text, (100, 600), f1)
+    blit_text(screen, text, (100, 600))
     pygame.display.update()
 
 
@@ -171,7 +193,7 @@ def step_10():
 
 
 def step_11():
-    scene = pygame.image.load('zastavka_11.jpg')
+    scene = pygame.image.load('zastavka_11.png')
     screen.blit(scene, (0, 0))
     pygame.display.update()
 
@@ -184,7 +206,7 @@ def step_12():
 
 def step_13():
     scene = pygame.image.load('zastavka_12.png')
-    screen.blit(scene, (0,0))
+    screen.blit(scene, (0, 0))
     draw_persona('main_hero.png')
     text = "Ух, почти успела. Вроде ничего важного не пропустила, отлично."
     pygame.draw.rect(screen, 'pink', (100, 600, 300, 40))
@@ -193,9 +215,9 @@ def step_13():
 
 
 def step_14():
-    scene = pygame.image.load('zastavka_13.jpg')
+    scene = pygame.image.load('zastavka_13.png')
     screen.blit(scene, (0, 0))
-    text = "Привет! Я Миша. Ты же " + name + "? Рад познакомиться. Мы с тобой одногруппники."
+    text = "Привет! Я Миша. Ты же " + main_character.name + "? Рад познакомиться. Мы с тобой одногруппники."
     pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
     blit_text(screen, text, (100, 600), f1)
     pygame.display.update()
@@ -212,7 +234,7 @@ def step_15():
 
 
 def step_16():
-    scene = pygame.image.load('zastavka_13.jpg')
+    scene = pygame.image.load('zastavka_13.png')
     screen.blit(scene, (0, 0))
     text = "Как тебе лекция?"
     pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
@@ -235,7 +257,7 @@ def step_17():
 
 
 def step_23():
-    scene = pygame.image.load('zastavka_13.jpg')
+    scene = pygame.image.load('zastavka_13.png')
     screen.blit(scene, (0, 0))
     text = "Если что, всегда рад предложить свою помощь. Я в 333 живу, легко запомнить. приходи на чай с матаном."
     pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
@@ -244,7 +266,7 @@ def step_23():
 
 
 def step_25():
-    scene = pygame.image.load('zastavka_13.jpg')
+    scene = pygame.image.load('zastavka_13.png')
     screen.blit(scene, (0, 0))
     text = "А я что-то не совсем понимаю… Я буду очень благодарен тебе, если ты поможешь мне разобраться с этой темой"
     pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
@@ -281,7 +303,7 @@ def step_31():
 
 
 def step_35():
-    scene = pygame.image.load('zastavka_13.jpg')
+    scene = pygame.image.load('zastavka_13.png')
     screen.blit(scene, (0, 0))
     text = "Отлично! Приходи ко мне после пар."
     pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
@@ -300,7 +322,7 @@ def step_35_1():
 
 
 def step_36():
-    scene = pygame.image.load('zastavka_13.jpg')
+    scene = pygame.image.load('zastavka_13.png')
     screen.blit(scene, (0, 0))
     text = "Ну, приходи ко мне, если надумаешь. Буду рад видеть."
     pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
@@ -320,7 +342,7 @@ def step_36_1():
 
 def step_37():
     scene = pygame.image.load('zastavka_12.png')
-    screen.blit(scene, (0,0))
+    screen.blit(scene, (0, 0))
     text = "Лекция окончена. Всем спасибо, до свидания."
     pygame.draw.rect(screen, 'white', (100, 600, 300, 40))
     blit_text(screen, text, (100, 600), f1)
@@ -337,87 +359,15 @@ def step_38():
     pygame.display.update()
 
 
-def step_39():
-    scene = pygame.image.load('home.png')
-    screen.blit(scene, (0, 0))
-    draw_talker('sosedka.png')
-    text = "Да уж, ну и денёк.. А го на нк пиво пить? Развеемся, отдохнем, познакомимся с кем-то."
-    pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
-    blit_text(screen, text, (100, 600), f1)
-    pygame.display.update()
+ege = np.array([step_1, step_2, step_3, step_4])
+lection = np.array([step_7, step_8, step_9, step_10, step_11, step_12, step_13, step_14, step_15, step_16, step_17])
 
-
-def step_40_smart():
-    scene = pygame.image.load('home.png')
-    screen.blit(scene, (0, 0))
-    draw_persona('main_hero.png')
-    draw_choice()
-    text1 = "Го"
-    text2 = "Не, в другой раз"
-    pygame.draw.rect(screen, (240, 255, 255), (100, 650, 300, 40))
-    blit_text(screen, text1, (120, 570), f1)
-    blit_text(screen, text2, (120, 615), f1)
-    pygame.display.update()
-
-
-def step_40_notsmart():
-    scene = pygame.image.load('home.png')
-    screen.blit(scene, (0, 0))
-    draw_persona('main_hero.png')
-    draw_choice()
-    text1 = "Не, в другой раз"
-    pygame.draw.rect(screen, (240, 255, 255), (100, 605, 300, 40))
-    pygame.draw.rect(screen, (240, 255, 255), (100, 650, 300, 40))
-    blit_text(screen, text1, (120, 570), f1)
-    pygame.display.update()
-
-
-def step_43():
-    scene = pygame.image.load('nk.png')
-    screen.blit(scene, (0, 0))
-    pygame.mixer.music.load('trava_u_doma.mp3')
-    pygame.mixer.music.play()
-    text = "ОТ КОРОБКИ ДО НК..."
-    pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
-    blit_text(screen, text, (100, 600), f1)
-    pygame.display.update()
-
-
-def step_43_1():
-    scene = pygame.image.load('nk.png')
-    screen.blit(scene, (0, 0))
-    text = "КТО ЧЕМПИОН???"
-    pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
-    blit_text(screen, text, (100, 600), f1)
-    pygame.display.update()
-
-
-def step_44():
-    scene = pygame.image.load('nk.png')
-    screen.blit(scene, (0, 0))
-    draw_persona('main_hero.png')
-    draw_choice()
-    text1 = "ФАКИ ЧЕМПИОН!"
-    text2 = "Факи чемпион"
-    text3 = "*промолчать*"
-    blit_text(screen, text1, (120, 570), f1)
-    blit_text(screen, text2, (120, 615), f1)
-    blit_text(screen, text3, (120, 660), f1)
-    pygame.display.update()
-
-
-def first():
-    screen.fill((240, 255, 255))
-    pygame.draw.rect(screen, 'black', (350, 150, 40, 40))
-    draw_choice()
-
-
-subj_1 = np.array([step_1, step_2])
-subj_2 = subj_1
 story = dict([
-    ("first", subj_1),
-    ("second", subj_2)
+    ("ege", ege),
+    ("lection", lection)
 ])
+
+# катя просто лучшая, люблю её
 
 pygame.display.update()
 clock = pygame.time.Clock()
@@ -429,20 +379,14 @@ while not finished:
             finished = True
         elif event.type == pygame.MOUSEBUTTONDOWN:
             x, y = event.pos
-
-            if 100 <= x <= 400 and 250 <= y <= 350:
-                realise_plot(story["first"])
-            first()
-
-            draw_persona('main_hero.png')
-            pygame.display.update()
+            if 50 <= x <= 455 and 500 <= y <= 621:
+                realise_plot(story["ege"])
             next_plot = choice(click(event))
-            if next_plot == 1:
-                realise_plot(story["second"])
-            elif next_plot == 2:
-                realise_plot(story["second"])
-            elif next_plot == 3:
-                realise_plot(story["second"])
-
+            if next_plot == 2:
+                ege_points()
+            else:
+                continue
+            realise_plot(story["lection"])
+            next_plot = choice(click(event))
 
 pygame.quit()
