@@ -117,46 +117,27 @@ def draw_choice():
 
 
 def step_1():
-    screen.fill((240, 255, 255))
-    text1 = "Вот-вот начнётся твоя история. Но сначала узнаем, как ты сдала ЕГЭ."
-    blit_text(screen, text1, (50, 260), f1)
+    zastavka_1 = pygame.image.load('zastavka_1.png')
+    screen.blit(zastavka_1, (0,0))
     pygame.display.update()
 
 
 def step_3():
-    screen.fill((240, 255, 255))
-    ege_mark = str(randint(250, 310))
-    #    pygame.display.update()
-    main_character.ege_point = ege_mark
-    pygame.draw.rect(screen, 'blue', (150, 200, 200, 300))
-    text1 = "Твой балл ЕГЭ:"
-    blit_text(screen, text1, (150, 100), f1)
-    blit_text(screen, ege_mark, (245, 350), f1)
+    # нужно вставить балл егэ в квадрат белый (130, 175, 240, 130)
+    zastavka_3 = pygame.image.load('zastavka_3.png')
+    screen.blit(zastavka_3, (0,0))
     pygame.display.update()
 
 
 def step_2():
-    screen.fill((240, 255, 255))
-    text1 = "Введите свое имя: "
-    blit_text(screen, text1, (150, 100), f1)
-    #    pygame.display.update()
-    name = "marie"  # FIXME должен быть инпут
-    main_character.name = name
-    blit_text(screen, main_character.name, (245, 350), f1)
+    zastavka_2 = pygame.image.load('zastavka_2.png')
+    screen.blit(zastavka_2, (0, 0))
     pygame.display.update()
 
 
 def step_4():
-    screen.fill((240, 255, 255))
-    draw_persona('main_hero.png')
-    text = "Я сдала ЕГЭ: "
-    blit_text(screen, text, (150, 100), f1)
-    draw_choice()
-    pygame.draw.rect(screen, (240, 255, 255), (100, 650, 300, 40))
-    text1 = "Отлично! Пусть начнётся моя история."
-    text2 = "Хорошо. Но я хочу пересдать ЕГЭ."
-    blit_text(screen, text1, (120, 570), f1)
-    blit_text(screen, text2, (120, 615), f1)
+    zastavka_4 = pygame.image.load('zastavka_4.png')
+    screen.blit(zastavka_4, (0, 0))
     pygame.display.update()
 
 
