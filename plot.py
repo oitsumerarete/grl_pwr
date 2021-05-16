@@ -70,7 +70,9 @@ def blit_text(surface, text, pos, font, color=pygame.Color('black')):
 def draw_persona(name):
     face = pygame.image.load(name)
     screen.blit(face, (270, 250))
- #   pygame.display.update()
+
+
+#   pygame.display.update()
 
 
 def click(event_type):
@@ -124,7 +126,7 @@ def step_1():
 def step_3():
     screen.fill((240, 255, 255))
     ege_mark = str(randint(250, 310))
-#    pygame.display.update()
+    #    pygame.display.update()
     main_character.ege_point = ege_mark
     pygame.draw.rect(screen, 'blue', (150, 200, 200, 300))
     text1 = "Твой балл ЕГЭ:"
@@ -137,8 +139,8 @@ def step_2():
     screen.fill((240, 255, 255))
     text1 = "Введите свое имя: "
     blit_text(screen, text1, (150, 100), f1)
-#    pygame.display.update()
-    name = "marie" #FIXME должен быть инпут
+    #    pygame.display.update()
+    name = "marie"  # FIXME должен быть инпут
     main_character.name = name
     blit_text(screen, main_character.name, (245, 350), f1)
     pygame.display.update()
@@ -356,6 +358,75 @@ def step_38():
     text = "Ух.. Какой насыщенный день. Все 6 пар отсидела, устала до ужаса."
     pygame.draw.rect(screen, 'pink', (100, 600, 300, 40))
     blit_text(screen, text, (100, 600), f1)
+    pygame.display.update()
+
+
+def step_39():
+    scene = pygame.image.load('home.png')
+    screen.blit(scene, (0, 0))
+    draw_talker('sosedka.png')
+    text = "Да уж, ну и денёк.. А го на нк пиво пить? Развеемся, отдохнем, познакомимся с кем-то."
+    pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
+    blit_text(screen, text, (100, 600), f1)
+    pygame.display.update()
+
+
+def step_40_smart():
+    scene = pygame.image.load('home.png')
+    screen.blit(scene, (0, 0))
+    draw_persona('main_hero.png')
+    draw_choice()
+    text1 = "Го"
+    text2 = "Не, в другой раз"
+    pygame.draw.rect(screen, (240, 255, 255), (100, 650, 300, 40))
+    blit_text(screen, text1, (120, 570), f1)
+    blit_text(screen, text2, (120, 615), f1)
+    pygame.display.update()
+
+
+def step_40_notsmart():
+    scene = pygame.image.load('home.png')
+    screen.blit(scene, (0, 0))
+    draw_persona('main_hero.png')
+    draw_choice()
+    text1 = "Не, в другой раз"
+    pygame.draw.rect(screen, (240, 255, 255), (100, 605, 300, 40))
+    pygame.draw.rect(screen, (240, 255, 255), (100, 650, 300, 40))
+    blit_text(screen, text1, (120, 570), f1)
+    pygame.display.update()
+
+
+def step_43():
+    scene = pygame.image.load('nk.png')
+    screen.blit(scene, (0, 0))
+    pygame.mixer.music.load('trava_u_doma.mp3')
+    pygame.mixer.music.play()
+    text = "ОТ КОРОБКИ ДО НК..."
+    pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
+    blit_text(screen, text, (100, 600), f1)
+    pygame.display.update()
+
+
+def step_43_1():
+    scene = pygame.image.load('nk.png')
+    screen.blit(scene, (0, 0))
+    text = "КТО ЧЕМПИОН???"
+    pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
+    blit_text(screen, text, (100, 600), f1)
+    pygame.display.update()
+
+
+def step_44():
+    scene = pygame.image.load('nk.png')
+    screen.blit(scene, (0, 0))
+    draw_persona('main_hero.png')
+    draw_choice()
+    text1 = "ФАКИ ЧЕМПИОН!"
+    text2 = "Факи чемпион"
+    text3 = "*промолчать*"
+    blit_text(screen, text1, (120, 570), f1)
+    blit_text(screen, text2, (120, 615), f1)
+    blit_text(screen, text3, (120, 660), f1)
     pygame.display.update()
 
 
