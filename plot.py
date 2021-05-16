@@ -171,7 +171,7 @@ def step_10():
 
 
 def step_11():
-    scene = pygame.image.load('zastavka_11.png')
+    scene = pygame.image.load('zastavka_11.jpg')
     screen.blit(scene, (0, 0))
     pygame.display.update()
 
@@ -193,7 +193,7 @@ def step_13():
 
 
 def step_14():
-    scene = pygame.image.load('zastavka_13.png')
+    scene = pygame.image.load('zastavka_13.jpg')
     screen.blit(scene, (0, 0))
     text = "Привет! Я Миша. Ты же " + name + "? Рад познакомиться. Мы с тобой одногруппники."
     pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
@@ -212,7 +212,7 @@ def step_15():
 
 
 def step_16():
-    scene = pygame.image.load('zastavka_13.png')
+    scene = pygame.image.load('zastavka_13.jpg')
     screen.blit(scene, (0, 0))
     text = "Как тебе лекция?"
     pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
@@ -235,7 +235,7 @@ def step_17():
 
 
 def step_23():
-    scene = pygame.image.load('zastavka_13.png')
+    scene = pygame.image.load('zastavka_13.jpg')
     screen.blit(scene, (0, 0))
     text = "Если что, всегда рад предложить свою помощь. Я в 333 живу, легко запомнить. приходи на чай с матаном."
     pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
@@ -244,7 +244,7 @@ def step_23():
 
 
 def step_25():
-    scene = pygame.image.load('zastavka_13.png')
+    scene = pygame.image.load('zastavka_13.jpg')
     screen.blit(scene, (0, 0))
     text = "А я что-то не совсем понимаю… Я буду очень благодарен тебе, если ты поможешь мне разобраться с этой темой"
     pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
@@ -281,7 +281,7 @@ def step_31():
 
 
 def step_35():
-    scene = pygame.image.load('zastavka_13.png')
+    scene = pygame.image.load('zastavka_13.jpg')
     screen.blit(scene, (0, 0))
     text = "Отлично! Приходи ко мне после пар."
     pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
@@ -300,7 +300,7 @@ def step_35_1():
 
 
 def step_36():
-    scene = pygame.image.load('zastavka_13.png')
+    scene = pygame.image.load('zastavka_13.jpg')
     screen.blit(scene, (0, 0))
     text = "Ну, приходи ко мне, если надумаешь. Буду рад видеть."
     pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
