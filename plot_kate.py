@@ -835,7 +835,6 @@ class Step_35(Step):
         pygame.display.update()
 
 
-
 class Step_35_1(Step):
 
     def __init__(self, screen):
@@ -864,45 +863,114 @@ class Step_35_1(Step):
         pygame.display.update()
 
 
+class Step_36(Step):
+
+    def __init__(self, screen):
+        self.screen = screen
+
+    def run(self):
+        clock = pygame.time.Clock()
+        finished = False
+        while not finished:
+            clock.tick(FPS)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    finished = True
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        finished = True
+            self.draw()
+
+    def draw(self):
+        scene = pygame.image.load('zastavka_13.jpg')
+        screen.blit(scene, (0, 0))
+        text = "Ну, приходи ко мне, если надумаешь. Буду рад видеть."
+        pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
+        self.blit_text(screen, text, (100, 600), f1)
+        pygame.display.update()
 
 
+class Step_36_1(Step):
 
-def step_36():
-    scene = pygame.image.load('zastavka_13.jpg')
-    screen.blit(scene, (0, 0))
-    text = "Ну, приходи ко мне, если надумаешь. Буду рад видеть."
-    pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
-    # blit_text(screen, text, (100, 600), f1)
-    pygame.display.update()
+    def __init__(self, screen):
+        self.screen = screen
+
+    def run(self):
+        clock = pygame.time.Clock()
+        finished = False
+        while not finished:
+            clock.tick(FPS)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    finished = True
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        finished = True
+            self.draw()
+
+    def draw(self):
+        scene = pygame.image.load('zastavka_12.jpg')
+        screen.blit(scene, (0, 0))
+        draw_persona('main_hero.png')
+        text = "Хорошо."
+        pygame.draw.rect(screen, 'pink', (100, 600, 300, 40))
+        self.blit_text(screen, text, (100, 600), f1)
+        pygame.display.update()
 
 
-def step_36_1():
-    scene = pygame.image.load('zastavka_12.jpg')
-    screen.blit(scene, (0, 0))
-    draw_persona('main_hero.png')
-    text = "Хорошо."
-    pygame.draw.rect(screen, 'pink', (100, 600, 300, 40))
-    # blit_text(screen, text, (100, 600), f1)
-    pygame.display.update()
+class Step_37(Step):
+
+    def __init__(self, screen):
+        self.screen = screen
+
+    def run(self):
+        clock = pygame.time.Clock()
+        finished = False
+        while not finished:
+            clock.tick(FPS)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    finished = True
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        finished = True
+            self.draw()
+
+    def draw(self):
+        scene = pygame.image.load('zastavka_12.jpg')
+        screen.blit(scene, (0, 0))
+        text = "Лекция окончена. Всем спасибо, до свидания."
+        pygame.draw.rect(screen, 'white', (100, 600, 300, 40))
+        self.blit_text(screen, text, (100, 600), f1)
+        pygame.display.update()
 
 
-def step_37():
-    scene = pygame.image.load('zastavka_12.jpg')
-    screen.blit(scene, (0, 0))
-    text = "Лекция окончена. Всем спасибо, до свидания."
-    pygame.draw.rect(screen, 'white', (100, 600, 300, 40))
-    # blit_text(screen, text, (100, 600), f1)
-    pygame.display.update()
+class Step_38(Step):
 
+    def __init__(self, screen):
+        self.screen = screen
 
-def step_38():
-    scene = pygame.image.load('home.jpg')
-    screen.blit(scene, (0, 0))
-    draw_persona('main_hero.png')
-    text = "Ух.. Какой насыщенный день. Все 6 пар отсидела, устала до ужаса."
-    pygame.draw.rect(screen, 'pink', (100, 600, 300, 40))
-    # blit_text(screen, text, (100, 600), f1)
-    pygame.display.update()
+    def run(self):
+        clock = pygame.time.Clock()
+        finished = False
+        while not finished:
+            clock.tick(FPS)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    finished = True
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        finished = True
+            self.draw()
+
+    def draw(self):
+        scene = pygame.image.load('home.jpg')
+        screen.blit(scene, (0, 0))
+        draw_persona('main_hero.png')
+        text = "Ух.. Какой насыщенный день. Все 6 пар отсидела, устала до ужаса."
+        pygame.draw.rect(screen, 'pink', (100, 600, 300, 40))
+        self.blit_text(screen, text, (100, 600), f1)
+        pygame.display.update()
 
 
 # катя просто лучшая, люблю её
