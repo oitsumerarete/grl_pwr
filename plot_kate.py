@@ -1,5 +1,5 @@
 # В данном файле хранится сюжет и его обработка
-import pymorphy2
+#import pymorphy2
 import pygame
 import numpy as np
 from random import randint
@@ -238,10 +238,15 @@ class Step_0(Step):
 
     def draw(self):
         screen.fill((255, 255, 255))
-        zero_surf = pygame.image.load('0.jpg')
-        screen.blit(zero_surf, (0, 100))
+        zero_surf = pygame.image.load('zastavka0.png')
+        screen.blit(zero_surf, (0, 0))
+
+        text_0 = pygame.image.load('text_0.png')
+        screen.blit(text_0, (50, -10))
         self.button = Button()
-        self.button.create_button(screen, 'BLUE', 100, 250, 300, 100, 50, "Play", 'BLACK')
+        self.button.create_button(screen, 'BLUE', 100, 510, 300, 100, 50, "Play", 'BLACK')
+        button = pygame.image.load('new_game.png')
+        screen.blit(button, (50, 500))
         pygame.display.update()
 
 
@@ -264,9 +269,8 @@ class Step_1(Step):
             self.draw()
 
     def draw(self):
-        screen.fill((240, 255, 255))
-        text1 = "Вот-вот начнётся твоя история. Но сначала узнаем, как ты сдала ЕГЭ."
-        self.blit_text(self.screen, text1, (50, 260), f1)
+        zastavka_1 = pygame.image.load('zastavka_1.png')
+        screen.blit(zastavka_1, (0, 0))
         pygame.display.update()
 
 
@@ -274,7 +278,7 @@ class Step_2(Step):
 
     def __init__(self, screen):
         self.screen = screen
-        self.field1 = InsertField("", 100, 100, 200, 50, self.screen)
+        self.field1 = InsertField("", 75, 350, 350, 60, self.screen)
 
     def run(self):
         clock = pygame.time.Clock()
@@ -306,9 +310,8 @@ class Step_2(Step):
             self.draw()
 
     def draw(self):
-        screen.fill((100, 255, 255))
-        text1 = "Введите имя:"
-        self.blit_text(self.screen, text1, (50, 260), f1)
+        zastavka_2 = pygame.image.load('zastavka_2.png')
+        screen.blit(zastavka_2, (0, 0))
         self.field1.draw()
         pygame.display.update()
 
@@ -334,12 +337,10 @@ class Step_3(Step):
             self.draw()
 
     def draw(self):
-        screen.fill((240, 255, 255))
         main_character.ege_point = self.ege_mark
-        pygame.draw.rect(screen, 'blue', (150, 200, 200, 300))
-        text1 = "Твой балл ЕГЭ:"
-        self.blit_text(screen, text1, (150, 100), f1)
-        self.blit_text(screen, str(self.ege_mark), (245, 350), f1)
+        zastavka_3 = pygame.image.load('zastavka_3.png')
+        screen.blit(zastavka_3, (0, 0))
+        self.blit_text(screen, str(self.ege_mark), (235, 430), f1)
         pygame.display.update()
 
 
@@ -368,10 +369,9 @@ class Step_4(Step):
             self.draw()
 
     def draw(self):
-        screen.fill((240, 255, 255))
+        zastavka_4 = pygame.image.load('zastavka_4.png')
+        screen.blit(zastavka_4, (0, 0))
         draw_persona('main_hero.png')
-        text = "Я сдала ЕГЭ: "
-        self.blit_text(screen, text, (150, 100), f1)
         text1 = "Отлично! Пусть начнётся моя история."
         text2 = "Хорошо. Но я хочу пересдать ЕГЭ."
         text3 = "Я на ВМК"
@@ -581,8 +581,10 @@ class Step_14(Step):
             self.draw()
 
     def draw(self):
-        scene = pygame.image.load('zastavka_13.jpg')
+        scene = pygame.image.load('zastavka_13.png')
         screen.blit(scene, (0, 0))
+        name = pygame.image.load('misha.png')
+        screen.blit(name, (100, 565))
         text = "Привет! Я Миша. Ты же " + str(main_character.name) + "? Рад познакомиться. Мы с тобой одногруппники."
         pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
         self.blit_text(screen, text, (100, 600), f1)
@@ -636,8 +638,10 @@ class Step_16(Step):
             self.draw()
 
     def draw(self):
-        scene = pygame.image.load('zastavka_13.jpg')
+        scene = pygame.image.load('zastavka_13.png')
         screen.blit(scene, (0, 0))
+        name = pygame.image.load('misha.png')
+        screen.blit(name, (100, 565))
         text = "Как тебе лекция?"
         pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
         self.blit_text(screen, text, (100, 600), f1)
@@ -700,8 +704,10 @@ class Step_24(Step):
             self.draw()
 
     def draw(self):
-        scene = pygame.image.load('zastavka_13.jpg')
+        scene = pygame.image.load('zastavka_13.png')
         screen.blit(scene, (0, 0))
+        name = pygame.image.load('misha.png')
+        screen.blit(name, (100, 565))
         text = "Если что, всегда рад предложить свою помощь. Я в 333 живу, легко запомнить. приходи на чай с матаном."
         pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
         self.blit_text(screen, text, (100, 600), f1)
@@ -727,8 +733,10 @@ class Step_25(Step):
             self.draw()
 
     def draw(self):
-        scene = pygame.image.load('zastavka_13.jpg')
+        scene = pygame.image.load('zastavka_13.png')
         screen.blit(scene, (0, 0))
+        name = pygame.image.load('misha.png')
+        screen.blit(name, (100, 565))
         text = "А я что-то не совсем понимаю… Я буду очень благодарен тебе, если ты поможешь" \
                " мне разобраться с этой темой"
         pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
@@ -794,8 +802,10 @@ class Step_31(Step):
 
 
 def step_35():
-    scene = pygame.image.load('zastavka_13.jpg')
+    scene = pygame.image.load('zastavka_13.png')
     screen.blit(scene, (0, 0))
+    name = pygame.image.load('misha.png')
+    screen.blit(name, (100, 565))
     text = "Отлично! Приходи ко мне после пар."
     pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
     # blit_text(screen, text, (100, 600), f1)
@@ -813,8 +823,10 @@ def step_35_1():
 
 
 def step_36():
-    scene = pygame.image.load('zastavka_13.jpg')
+    scene = pygame.image.load('zastavka_13.png')
     screen.blit(scene, (0, 0))
+    name = pygame.image.load('misha.png')
+    screen.blit(name, (100, 565))
     text = "Ну, приходи ко мне, если надумаешь. Буду рад видеть."
     pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
     # blit_text(screen, text, (100, 600), f1)
