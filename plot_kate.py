@@ -34,6 +34,11 @@ def draw_persona(name):
     screen.blit(face, (270, 250))
 
 
+def draw_talker(name):
+    face = pygame.image.load(name)
+    screen.blit(face, (100, 250))
+
+
 def ege_points():
     flag = True
     while flag:
@@ -398,10 +403,10 @@ class Step_7(Step):
             self.draw()
 
     def draw(self):
-        screen.fill('black')
-        text = "Глава 1: первый день на Физтехе"
-        pygame.draw.rect(screen, 'white', (180, 300, 200, 50))
-        self.blit_text(screen, text, (180, 300), f1)
+        zastavka_7 = pygame.image.load('zastavka0.png')
+        screen.blit(zastavka_7, (0, 0))
+        text_7 = pygame.image.load('text_7.png')
+        screen.blit(text_7, (50, 290))
         pygame.display.update()
 
 
@@ -505,7 +510,7 @@ class Step_11(Step):
             self.draw()
 
     def draw(self):
-        scene = pygame.image.load('zastavka_11.jpg')
+        scene = pygame.image.load('nk.png')
         screen.blit(scene, (0, 0))
         pygame.display.update()
 
