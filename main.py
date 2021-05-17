@@ -318,8 +318,6 @@ class Button:
             if mouse[1] > self.rect.topleft[1]:
                 if mouse[0] < self.rect.bottomright[0]:
                     if mouse[1] < self.rect.bottomright[1]:
-                        print
-                        "Some button was pressed!"
                         return True
                     else:
                         return False
@@ -333,8 +331,8 @@ class Button:
 
 class Step_0(Step):
 
-    def __init__(self, screen):
-        self.screen = screen
+    def __init__(self, screen_):
+        self.screen = screen_
         self.button = Button()
 
     def run(self, next_step):
@@ -374,8 +372,8 @@ class Step_1(Step, ABC):
 
 class Step_2(Step):
 
-    def __init__(self, screen):
-        self.screen = screen
+    def __init__(self, screen_):
+        self.screen = screen_
         self.field1 = InsertField("", 75, 350, 350, 60, self.screen)
 
     def run(self, next_step):
@@ -416,8 +414,8 @@ class Step_2(Step):
 
 class Step_3(Step):
 
-    def __init__(self, screen):
-        self.screen = screen
+    def __init__(self, screen_):
+        self.screen = screen_
         self.ege_mark = randint(250, 310)
 
     def run(self, next_step):
@@ -685,7 +683,6 @@ class Step_25(Step, ABC):
 class Step_26(Step, ABC):
 
     def run(self, next_step):
-        global is_28, is_30
         clock = pygame.time.Clock()
         finished = False
         while not finished:
@@ -698,7 +695,6 @@ class Step_26(Step, ABC):
                     if self.button1.pressed((x, y)):
                         main_character.smart += 1
                         main_character.pop += 1
-                        is_28 = 1
                         if is_25:
                             return 19
                         else:
@@ -707,7 +703,6 @@ class Step_26(Step, ABC):
                         main_character.pop -= 1
                         return 32
                     elif self.button2.pressed((x, y)):
-                        is_30 = 1
                         if is_25:
                             return 19
                         else:
