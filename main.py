@@ -104,8 +104,8 @@ class Step:
     """
 
     @abstractmethod
-    def __init__(self, screen):
-        self.screen = screen
+    def __init__(self, screen_):
+        self.screen = screen_
         self.button1 = Button()
         self.button2 = Button()
         self.button3 = Button()
@@ -148,7 +148,7 @@ class InsertField:
     class for inserting
     """
 
-    def __init__(self, value, x, y, width, height, screen):
+    def __init__(self, value, x, y, width, height, screen_):
         """
         init function
         :param value: value
@@ -156,7 +156,7 @@ class InsertField:
         :param y: y position on screen
         :param width: width
         :param height: height
-        :param screen: surface
+        :param screen_: surface
         """
         self.is_active = False
         self.value = str(value)
@@ -164,9 +164,18 @@ class InsertField:
         self.y = y
         self.width = width
         self.height = height
-        self.screen = screen
+        self.screen = screen_
 
     def blit_text(self, surface, text, pos, font, color=pygame.Color('black')):
+        """
+        Функция печатает текст на экране так, чтобы он не выходил за рамки экрана
+        :param surface: поверхность, на которой должна происходить отрисовка
+        :param text: текст, который нужно отрисовать
+        :param pos: позиция текста
+        :param font: шрифт
+        :param color: цвет
+        :return:
+        """
         words = [word.split(' ') for word in text.splitlines()]  # 2D array where each row is a list of words.
         space = font.size(' ')[0]  # The width of a space.
         max_width, max_height = surface.get_size()
@@ -270,7 +279,7 @@ class Button:
         """
         font_size = int(length // (len(text)))
         myFont = pygame.font.SysFont("Calibri", font_size)
-        myText = myFont.render(text, 1, text_color)
+        myText = myFont.render(text, True, text_color)
         surface.blit(myText, ((x + length / 2) - myText.get_width() / 2, (y + height / 2) - myText.get_height() / 2))
         return surface
 
