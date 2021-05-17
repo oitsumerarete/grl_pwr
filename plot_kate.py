@@ -750,7 +750,15 @@ class Step_26(Step):
                 if event.type == pygame.QUIT:
                     finished = True
                 if event.type == pygame.MOUSEBUTTONDOWN:
-                    i
+                    (x, y) = pygame.mouse.get_pos()
+                    if self.button1.pressed((x, y)):
+                        main_character.smart += 1
+                        main_character.pop += 1
+                        return 35
+                    elif self.button3.pressed((x, y)):
+                        main_character.pop -= 1
+                    elif self.button2.pressed((x, y)):
+                        return 36
             self.draw()
 
     def draw(self):
@@ -777,9 +785,16 @@ class Step_31(Step):
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     finished = True
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_SPACE:
-                        finished = True
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    (x, y) = pygame.mouse.get_pos()
+                    if self.button1.pressed((x, y)):
+                        main_character.smart += 1
+                        main_character.pop += 1
+                        return 35
+                    elif self.button3.pressed((x, y)):
+                        main_character.pop -= 1
+                    elif self.button2.pressed((x, y)):
+                        return 36
             self.draw()
 
     def draw(self):
@@ -793,23 +808,63 @@ class Step_31(Step):
         pygame.display.update()
 
 
-def step_35():
-    scene = pygame.image.load('zastavka_13.jpg')
-    screen.blit(scene, (0, 0))
-    text = "Отлично! Приходи ко мне после пар."
-    pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
-    # blit_text(screen, text, (100, 600), f1)
-    pygame.display.update()
+class Step_35(Step):
+
+    def __init__(self, screen):
+        self.screen = screen
+
+    def run(self):
+        clock = pygame.time.Clock()
+        finished = False
+        while not finished:
+            clock.tick(FPS)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    finished = True
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        finished = True
+            self.draw()
+
+    def draw(self):
+        scene = pygame.image.load('zastavka_13.jpg')
+        screen.blit(scene, (0, 0))
+        text = "Отлично! Приходи ко мне после пар."
+        pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
+        self.blit_text(screen, text, (100, 600), f1)
+        pygame.display.update()
 
 
-def step_35_1():
-    scene = pygame.image.load('zastavka_12.jpg')
-    screen.blit(scene, (0, 0))
-    draw_persona('main_hero.png')
-    text = "Договорились!"
-    pygame.draw.rect(screen, 'pink', (100, 600, 300, 40))
-    # blit_text(screen, text, (100, 600), f1)
-    pygame.display.update()
+
+class Step_35_1(Step):
+
+    def __init__(self, screen):
+        self.screen = screen
+
+    def run(self):
+        clock = pygame.time.Clock()
+        finished = False
+        while not finished:
+            clock.tick(FPS)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    finished = True
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        finished = True
+            self.draw()
+
+    def draw(self):
+        scene = pygame.image.load('zastavka_12.jpg')
+        screen.blit(scene, (0, 0))
+        draw_persona('main_hero.png')
+        text = "Договорились!"
+        pygame.draw.rect(screen, 'pink', (100, 600, 300, 40))
+        self.blit_text(screen, text, (100, 600), f1)
+        pygame.display.update()
+
+
+
 
 
 def step_36():
