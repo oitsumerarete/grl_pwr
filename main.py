@@ -16,6 +16,7 @@ FPS = 20
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
 # Global
+is_24 = False
 is_25 = False
 
 
@@ -611,6 +612,23 @@ class Step_17(Step, ABC):
 
 class Step_24(Step, ABC):
 
+    def run(self, next_step):
+        """
+        Основной цикл программы
+        :return:
+        """
+        clock = pygame.time.Clock()
+        finished = False
+        while not finished:
+            clock.tick(FPS)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    return 0
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        return 18
+            self.draw()
+
     def draw(self):
         scene = pygame.image.load('zastavka_13.png')
         screen.blit(scene, (0, 0))
@@ -624,6 +642,23 @@ class Step_24(Step, ABC):
 
 class Step_25(Step, ABC):
 
+    def run(self, next_step):
+        """
+        Основной цикл программы
+        :return:
+        """
+        clock = pygame.time.Clock()
+        finished = False
+        while not finished:
+            clock.tick(FPS)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    return 0
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        return 19
+            self.draw()
+
     def draw(self):
         global is_25
         scene = pygame.image.load('zastavka_13.png')
@@ -632,7 +667,7 @@ class Step_25(Step, ABC):
         screen.blit(name, (100, 565))
         text = "А я что-то не совсем понимаю… Я буду очень благодарен тебе, если ты поможешь" \
                " мне разобраться с этой темой"
-        pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
+        pygame.draw.rect(screen, 'blue', (60, 600, 400, 100))
         blit_text(screen, text, (100, 600), f1)
         pygame.display.update()
         is_25 = True
@@ -684,7 +719,6 @@ class Step_26(Step, ABC):
 class Step_31(Step, ABC):
 
     def run(self, next_step):
-        global is_32, is_34
         clock = pygame.time.Clock()
         finished = False
         while not finished:
@@ -697,13 +731,11 @@ class Step_31(Step, ABC):
                     if self.button1.pressed((x, y)):
                         main_character.smart += 1
                         main_character.pop += 1
-                        is_32 = 1
                         return 20
                     elif self.button3.pressed((x, y)):
                         main_character.pop -= 1
                         return 32
                     elif self.button2.pressed((x, y)):
-                        is_34 = 1
                         return 22
             self.draw()
 
@@ -723,6 +755,8 @@ class Step_35(Step, ABC):
     def draw(self):
         scene = pygame.image.load('zastavka_13.jpg')
         screen.blit(scene, (0, 0))
+        name = pygame.image.load('misha.png')
+        screen.blit(name, (100, 565))
         text = "Отлично! Приходи ко мне после пар."
         pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
         blit_text(screen, text, (100, 600), f1)
@@ -763,6 +797,8 @@ class Step_36(Step, ABC):
     def draw(self):
         scene = pygame.image.load('zastavka_13.jpg')
         screen.blit(scene, (0, 0))
+        name = pygame.image.load('misha.png')
+        screen.blit(name, (100, 565))
         text = "Ну, приходи ко мне, если надумаешь. Буду рад видеть."
         pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
         blit_text(screen, text, (100, 600), f1)
@@ -911,6 +947,8 @@ class Step_43(Step, ABC):
     def draw(self):
         scene = pygame.image.load('zastavka_43.png')
         screen.blit(scene, (0, 0))
+        chel = pygame.image.load('chel_1.png')
+        screen.blit(chel, (100, 565))
 #        pygame.mixer.music.load('trava_u_doma.mp3')
 #        pygame.mixer.music.play()
         text = "ОТ КОРОБКИ ДО НК..."
@@ -924,6 +962,8 @@ class Step_43_1(Step, ABC):
     def draw(self):
         scene = pygame.image.load('zastavka_43.png')
         screen.blit(scene, (0, 0))
+        chel = pygame.image.load('chel_2.png')
+        screen.blit(chel, (100, 565))
         text = "КТО ЧЕМПИОН???"
         pygame.draw.rect(screen, 'blue', (100, 600, 300, 40))
         blit_text(screen, text, (100, 600), f1)
@@ -965,9 +1005,33 @@ class Step_44(Step, ABC):
 
 
 class Step_45(Step, ABC):
+    def draw(self):
+        konec = pygame.image.load('konec.png')
+        screen.blit(konec, (0,0))
+        pygame.display.update()
+
+
+class Step_46(Step, ABC):
+    def run(self, next_step):
+        """
+        Основной цикл программы
+        :return:
+        """
+        clock = pygame.time.Clock()
+        finished = False
+        while not finished:
+            clock.tick(FPS)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    return 0
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        return 0
+            self.draw()
 
     def draw(self):
-        screen.fill('black')
+        karinm = pygame.image.load('thanks.png')
+        screen.blit(karinm, (0,0))
         pygame.display.update()
 
 # катя просто лучшая, люблю её
@@ -1005,11 +1069,12 @@ step43 = Step_43(screen)
 step43_1 = Step_43_1(screen)
 step44 = Step_44(screen)
 step45 = Step_45(screen)
+step46 = Step_46(screen)
 
 steps = [step0, step1, step2, step3, step4, step7, step8, step9, step10, step11, step12, step13, step14, step15,
          step16,
          step17, step24, step25, step26, step31, step35, step35_1, step36, step36_1, step37, step38, step39,
-         step40_smart, step40_non_smart, step43, step43_1, step44, step45]
+         step40_smart, step40_non_smart, step43, step43_1, step44, step45, step46]
 
 run = True
 step = 0
