@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" ENABLED="true" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1dbfb7ce-90d4-429d-96da-c9e2444e41f1" name="Default Changelist" comment="Все строки сценария + отрисовка + музыка">
+      <change afterPath="$PROJECT_DIR$/Images/chel_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/chel_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/konec.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/thanks.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/zastavka_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/zastavka_12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/zastavka_43.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chel_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chel_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/home.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/home.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ivanovf.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/konec.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ksusha.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/ksusha.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_hero.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/main_hero.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/misha.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/misha.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new_game.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/new_game.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nk.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/nk.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_kate.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sosedka.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/sosedka.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/text_0.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/text_0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/text_7.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/text_7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thanks.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zastavka0.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/zastavka0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zastavka_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/zastavka_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zastavka_11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zastavka_12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zastavka_13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zastavka_13.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/zastavka_13.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zastavka_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/zastavka_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zastavka_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/zastavka_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zastavka_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/zastavka_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zastavka_43.png" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1r4ZvNGGHstOI4Ptr632WzlqY3L" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="Example" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="D:\Anaconda3\envs\python006\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Downloads/Button Drawer - Source" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Downloads/Button Drawer - Source/Example.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="D:\Anaconda3\envs\python006\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="plot" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="D:\Anaconda3\envs\python006\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plot.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="plot_kate" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="D:\Anaconda3\envs\python006\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plot_kate.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="scratch" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="D:\Anaconda3\envs\python006\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.plot" />
+      <item itemvalue="Python.scratch" />
+      <item itemvalue="Python.plot_kate" />
+      <item itemvalue="Python.Example" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.plot_kate" />
+        <item itemvalue="Python.plot" />
+        <item itemvalue="Python.Example" />
+        <item itemvalue="Python.scratch" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1dbfb7ce-90d4-429d-96da-c9e2444e41f1" name="Default Changelist" comment="" />
+      <created>1618237551945</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1618237551945</updated>
+      <workItem from="1619447728887" duration="73000" />
+      <workItem from="1619551104803" duration="21000" />
+    </task>
+    <task id="LOCAL-00001" summary="0 step">
+      <created>1618243434885</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1618243434885</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Начало отрисовки">
+      <created>1620592587477</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1620592587477</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Промежуточно">
+      <created>1621170883366</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1621170883366</updated>
+    </task>
+    <task id="LOCAL-00004" summary="До 9 строчки">
+      <created>1621173189282</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1621173189282</updated>
+    </task>
+    <task id="LOCAL-00005" summary="До 38 строчки">
+      <created>1621178192288</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1621178192288</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Все строки сценария">
+      <created>1621179927764</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1621179927764</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Все строки сценария + отрисовка + музыка">
+      <created>1621180061355</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1621180061355</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Отредактировала начальную картинку">
+      <created>1621202456032</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1621202456032</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Отредактировала начальную картинку">
+      <created>1621202749727</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1621202749727</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Улучшенная отрисовка">
+      <created>1621208070027</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1621208070027</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Обновленная отрисовка">
+      <created>1621221103890</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1621221103890</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Обновленная отрисовка">
+      <created>1621223427902</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1621223427902</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Редакция прямоугольников">
+      <created>1621256309470</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1621256309470</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Финал">
+      <created>1621264372289</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1621264372289</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="0 step" />
+    <MESSAGE value="Начало отрисовки" />
+    <MESSAGE value="Промежуточно" />
+    <MESSAGE value="До 9 строчки" />
+    <MESSAGE value="До 38 строчки" />
+    <MESSAGE value="Все строки сценария" />
+    <MESSAGE value="Все строки сценария + отрисовка + музыка" />
+    <MESSAGE value="Отредактировала начальную картинку" />
+    <MESSAGE value="Улучшенная отрисовка" />
+    <MESSAGE value="Обновленная отрисовка" />
+    <MESSAGE value="Редакция прямоугольников" />
+    <MESSAGE value="Финал" />
+    <option name="LAST_COMMIT_MESSAGE" value="Финал" />
+  </component>
+</project>
