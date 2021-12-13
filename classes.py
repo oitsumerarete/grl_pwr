@@ -8,7 +8,7 @@ HEIGHT = 700
 pygame.init()
 pygame.font.init()
 # Шрифт
-f1 = pygame.font.SysFont('arial', 20)
+f1 = pygame.font.SysFont('timesnewroman', 20)
 
 FPS = 20
 # Экран
@@ -81,6 +81,7 @@ def blit_text(surface, text, pos, font, color=pygame.Color('black')):
     :param color: цвет
     :return:
     """
+    global word_height
     words = [word.split(' ') for word in text.splitlines()]  # 2D array where each row is a list of words.
     space = font.size(' ')[0]  # The width of a space.
     max_width, max_height = surface.get_size()
@@ -166,43 +167,17 @@ class InsertField:
         self.height = height
         self.screen = screen_
 
-    def blit_text(self, surface, text, pos, font, color=pygame.Color('black')):
-        """
-        Функция печатает текст на экране так, чтобы он не выходил за рамки экрана
-        :param surface: поверхность, на которой должна происходить отрисовка
-        :param text: текст, который нужно отрисовать
-        :param pos: позиция текста
-        :param font: шрифт
-        :param color: цвет
-        :return:
-        """
-        words = [word.split(' ') for word in text.splitlines()]  # 2D array where each row is a list of words.
-        space = font.size(' ')[0]  # The width of a space.
-        max_width, max_height = surface.get_size()
-        x, y = pos
-        for line in words:
-            for word in line:
-                word_surface = font.render(word, 0, color)
-                word_width, word_height = word_surface.get_size()
-                if x + word_width >= max_width:
-                    x = pos[0]  # Reset the x.
-                    y += word_height  # Start on new row.
-                surface.blit(word_surface, (x, y))
-                x += word_width + space
-            x = pos[0]  # Reset the x.
-            y += word_height  # Start on new row.
-
     def draw(self):
         """
         drawing text on screen
         :return:
         """
         pygame.draw.rect(self.screen, (255, 255, 255), (self.x, self.y, self.width, self.height))
-        self.blit_text(self.screen, str(self.value), (self.x + 3, self.y + 3), f1)
+        blit_text(self.screen, str(self.value), (self.x + 3, self.y + 3), f1)
 
     def insert(self, char):
         """
-        set text in squares
+        set text in field
         :param char: symbol
         :return:
         """
@@ -213,7 +188,7 @@ class InsertField:
 
     def activate(self):
         """
-        activate squares
+        activate field
         :return:
         """
         if not self.is_active:
@@ -222,7 +197,7 @@ class InsertField:
 
     def deactivate(self):
         """
-        disactivate squares
+        deactivate field
         :return:
         """
         if self.is_active:
@@ -277,8 +252,8 @@ class Button:
         :param y: координата верхнего левого угла кнопки
         :return:
         """
-        font_size = int(length // (len(text)))
-        myFont = pygame.font.SysFont("Calibri", font_size)
+        font_size = int(length // (len(text)) * 1.5)
+        myFont = pygame.font.SysFont("timesnewroman", font_size)
         myText = myFont.render(text, True, text_color)
         surface.blit(myText, ((x + length / 2) - myText.get_width() / 2, (y + height / 2) - myText.get_height() / 2))
         return surface
@@ -332,6 +307,7 @@ class Button:
 class Step_0(Step):
 
     def __init__(self, screen_):
+        super().__init__(screen_)
         self.screen = screen_
         self.button = Button()
 
@@ -373,6 +349,7 @@ class Step_1(Step, ABC):
 class Step_2(Step):
 
     def __init__(self, screen_):
+        super().__init__(screen_)
         self.screen = screen_
         self.field1 = InsertField("", 75, 350, 350, 60, self.screen)
 
@@ -386,7 +363,13 @@ class Step_2(Step):
                     return 0
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
-                        main_character.name = self.field1.value
+                        self.field1.value = str(self.field1.value)
+                        temporary = ''
+                        if len(self.field1.value) > 1:
+                            if self.field1.value[len(self.field1.value) - 1] == '|':
+                                for i in range(len(self.field1.value) - 1):
+                                    temporary += self.field1.value[i]
+                        main_character.name = temporary
                         return next_step
                     if event.key == pygame.K_BACKSPACE:
                         if self.field1.is_active and self.field1.value != "":
@@ -415,6 +398,7 @@ class Step_2(Step):
 class Step_3(Step):
 
     def __init__(self, screen_):
+        super().__init__(screen_)
         self.screen = screen_
         self.ege_mark = randint(250, 310)
 
@@ -467,7 +451,7 @@ class Step_4(Step, ABC):
         draw_persona('Images/main_hero.png')
         text1 = "Отлично! Пусть начнётся моя история."
         text2 = "Хорошо. Но я хочу пересдать ЕГЭ."
-        text3 = "Я на ВМК"
+        text3 = "На физтехе экология, я на ВМК."
         self.draw_choice(text1, text2, text3)
         pygame.display.update()
 
@@ -552,7 +536,7 @@ class Step_14(Step, ABC):
         screen.blit(name, (100, 565))
         text = "Привет! Я Миша. Ты же " + str(main_character.name) + "? Рад познакомиться. "
         text2 = "Мы с тобой одногруппники."
-        pygame.draw.rect(screen, 'blue', (60, 600, 350, 100))
+        pygame.draw.rect(screen, 'blue', (60, 600, 450, 100))
         blit_text(screen, text, (65, 600), f1)
         blit_text(screen, text2, (65, 640), f1)
         pygame.display.update()
@@ -611,7 +595,7 @@ class Step_17(Step, ABC):
         screen.blit(scene, (0, 0))
         draw_persona('Images/main_hero.png')
         text1 = "Вообще ничего не понимаю..."
-        text2 = "Интересно, но пока дается с трудом."
+        text2 = "Интересно, но дается с трудом."
         text3 = "Пфф.. Легкотня!"
         self.draw_choice(text1, text2, text3)
         pygame.display.update()
@@ -642,7 +626,7 @@ class Step_24(Step, ABC):
         name = pygame.image.load('Images/misha.png')
         screen.blit(name, (100, 565))
         text = "Если что, всегда рад предложить свою помощь. Я в 333 живу, легко запомнить. приходи на чай с матаном."
-        pygame.draw.rect(screen, 'blue', (60, 600, 380, 100))
+        pygame.draw.rect(screen, 'blue', (60, 600, 450, 100))
         blit_text(screen, text, (65, 610), f1)
         pygame.display.update()
 
@@ -714,7 +698,7 @@ class Step_26(Step, ABC):
         screen.blit(scene, (0, 0))
         draw_persona('Images/main_hero.png')
         text1 = "Спасибо! Я приду."
-        text2 = "Спасибо, но я сама попробую разобраться."
+        text2 = "Спасибо, попробую разобраться сама."
         text3 = "Отвали, без тебя справлюсь."
         self.draw_choice(text1, text2, text3)
         pygame.display.update()
@@ -763,7 +747,7 @@ class Step_35(Step, ABC):
         screen.blit(name, (100, 565))
         text = "Отлично! Приходи ко мне после пар."
         pygame.draw.rect(screen, 'blue', (100, 600, 400, 60))
-        blit_text(screen, text, (100, 610), f1)
+        blit_text(screen, text, (105, 610), f1)
         pygame.display.update()
 
 
@@ -804,7 +788,7 @@ class Step_36(Step, ABC):
         name = pygame.image.load('Images/misha.png')
         screen.blit(name, (100, 565))
         text = "Ну, приходи ко мне, если надумаешь. Буду рад видеть."
-        pygame.draw.rect(screen, 'blue', (100, 600, 400, 40))
+        pygame.draw.rect(screen, 'blue', (100, 600, 400, 50))
         blit_text(screen, text, (100, 600), f1)
         pygame.display.update()
 
@@ -839,7 +823,7 @@ class Step_38(Step, ABC):
         screen.blit(scene, (0, 0))
         draw_persona('Images/main_hero.png')
         text = "Ух.. Какой насыщенный день. Все 6 пар отсидела, устала до ужаса."
-        pygame.draw.rect(screen, 'pink', (100, 590, 400, 60))
+        pygame.draw.rect(screen, 'pink', (95, 590, 400, 60))
         blit_text(screen, text, (100, 600), f1)
         pygame.display.update()
 
@@ -871,7 +855,7 @@ class Step_39(Step, ABC):
         screen.blit(scene, (0, 0))
         draw_talker('Images/sosedka.png')
         text = "Да уж, ну и денёк.. А го на нк пиво пить? Развеемся, отдохнем, познакомимся с кем-то."
-        pygame.draw.rect(screen, 'blue', (60, 590, 400, 100))
+        pygame.draw.rect(screen, 'thistle1', (60, 590, 400, 100))
         blit_text(screen, text, (65, 595), f1)
         pygame.display.update()
 
